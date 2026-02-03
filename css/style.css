@@ -1,0 +1,539 @@
+/*基本設定*/
+
+:root {
+
+/*色の設定（Color）*/
+
+--color-main: #F3EFE0;
+
+--color-sub: #FFFDF5;
+
+--color-cta:#C58640;
+
+--color-txt: #6B4010;
+
+--color-subtxt:#C58640;
+
+--color-info:#AD8B66;
+
+--color-news:#E6B277;
+
+
+
+
+
+/*文字サイズの設定*/
+
+--font-title: "Inria Serif", serif;
+
+--font-subtitle:"Indie Flower", cursive;
+
+--font-txt: "M PLUS 1", sans-serif;
+
+
+
+--font-size-14: clamp(14px, 0.5vw + 12px, 16px);
+
+--font-size-16: clamp(16px, 0.5vw + 14px, 18px);
+
+--font-size-20: clamp(20px, 1vw + 16px, 24px);
+
+--font-size-24: clamp(24px, 1.5vw + 18px, 30px);
+
+--font-size-36: clamp(36px, 2vw + 28px, 60px);
+
+--font-size-40: clamp(40px, 2.5vw + 30px, 70px);
+
+--font-size-48: clamp(48px, 4vw + 32px, 80px);
+
+
+
+/* 行間 */
+
+--line-height-base: 1.75; /* 本文 */
+
+--line-height-tight: 1.2; /* タイトル */
+
+
+
+/* 字間 */
+
+--letter-spacing-base: 0.03em; /* ほんの少しだけ広げる */
+
+--letter-spacing-title: 0.1em; /* セクションタイトルを少し優雅に */
+
+
+
+
+
+}
+
+
+
+img {
+
+max-width: 100%;
+
+height: auto;
+
+vertical-align: bottom; /* 謎の隙間防止 */
+
+/* object-fit: cover; はここから消して、特定の丸い画像などだけに個別に使うのが安全です */
+
+}
+
+ul,li,a{
+
+list-style: none;
+
+padding: 0;
+
+text-decoration: none;
+
+}
+
+
+
+
+
+/*===---大枠レイアウト---===*/
+
+/*サイト背景*/
+
+body {
+
+background-color: var(--color-main);
+
+color: var(--color-txt);
+
+font-family: var(--font-txt);
+
+-webkit-font-smoothing: antialiased; /* 文字を滑らかにする（プロの隠し味） */
+
+line-height: var(--line-height-base);
+
+letter-spacing: var(--letter-spacing-base);
+
+}
+
+header{
+
+position: fixed;
+
+top: 0;
+
+left: 0;
+
+width: 100%;
+
+z-index: 1500;
+
+height: 90px;
+
+background-color: var(--color-main);
+
+display: flex;
+
+justify-content: space-between;
+
+align-items: center;
+
+padding: 0 20px;
+
+}
+
+footer{
+
+background: linear-gradient(
+
+to bottom,
+
+var(--color-news) 0%,
+
+var(--color-news) 10%,
+
+var(--color-txt) 10%,
+
+var(--color-txt) 100%
+
+) !important;
+
+color: var(--color-main);
+
+padding: 100px 0 50px !important;
+position: relative;
+margin: 0
+
+}
+
+/*セクション間の余白統一*/
+
+section:not(.fv) {
+
+padding: 100px 0;
+
+}
+
+
+
+/*店名*/
+
+.shop_title{
+
+font-family: var(--font-title);
+
+font-weight: bold;
+
+color: var(--color-main);
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+}
+
+.shop_name{
+
+display: flex;
+
+align-items: baseline; /* 文字の底辺を揃える */
+
+justify-content: center;
+
+gap: 10px;
+
+}
+
+.common_shopname_top{
+
+font-size: var(--font-size-36);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+}
+
+.common_shopname_big{
+
+font-size: var(--font-size-48);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+}
+
+.common_shopname_small{
+
+font-size: var(--font-size-40);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+}
+
+
+
+/*セクションタイトル*/
+
+
+
+/* --- 共通設定 --- */
+
+.common_headline_arch {
+
+width: 200px;
+
+margin: 0 auto -40px;
+
+}
+
+.common_headline_arch text {
+
+font-family: var(--font-subtitle);
+
+font-size: var(--font-size-24);/*変更*/
+
+}
+
+.common_headline_title {
+
+font-family: var(--font-title);
+
+font-size: var(--font-size-48);
+
+display: block; /* 改行させる */
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+}
+
+/* --- 色の出し分け --- */
+
+
+
+/* 白パターン (FVや濃い背景用) */
+
+.is-white .common_headline_arch textPath{
+
+fill: var(--color-main);
+
+}
+
+.is-white .common_headline_title {
+
+color: var(--color-main);
+
+text-align: center;
+
+}
+
+
+
+/* 茶色パターン (AboutやMenuなどの明るい背景用) */
+
+.is-brown .common_headline_arch textPath {
+
+fill: var(--color-cta);
+
+}
+
+.is-brown .common_headline_title {
+
+color: var(--color-txt);
+
+text-align: center;
+
+}
+
+
+
+/*スライダー*/
+
+/* FVとAboutで共通のスタイル */
+
+.fv__slider, .about__slider {
+
+display: flex;
+
+width: 400%;
+
+margin: 0;
+
+padding: 0;
+
+list-style: none;
+
+transition: transform 0.8s ease-in-out;
+
+}
+
+
+
+.fv__slide, .about__slide {
+
+width: 25%;
+
+}
+
+
+
+.fv__slide img, .about__slide img {
+
+width: 100%;
+
+height: 100%;
+
+object-fit: cover;
+
+}
+
+
+
+/* 個別の高さだけ指定 */
+
+.fv__slider_box, .fv__slide img { height: 100vh; }
+
+.about__slider_box, .about__slide img { height: auto; }
+
+
+
+/* タイトル全体を中央に整列させる（INFOやNEWSの親要素） */
+
+.about__title, .menu__title,.menu__title, .news__title {
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center; /* 左右中央 */
+
+justify-content: center;
+
+width: 100%;
+
+margin-bottom: 50px; /* ボックスとの距離を確保 */
+
+}
+
+.info .menu__title, .news .news__title {
+
+/*ここでタイトル全体を上に少し持ち上げる */
+
+margin-top: -50px !important;
+
+margin-bottom: 0 !important;
+
+}
+
+/* サークルの設定 */
+
+.is-circle {
+
+display: flex !important;
+
+padding-top: 80px;
+
+justify-content: center;
+
+width: 400px !important;
+
+height: 400px !important;
+
+margin: 0 auto !important;
+
+position: relative;
+
+z-index: 1;
+
+color: #fff;
+
+font-weight: bold;
+
+}
+
+@media screen and (max-width: 768px) {
+
+.is-circle {
+
+width: 300px !important;
+
+height: 300px !important;
+
+}
+
+}
+
+/* 円の背景色 */
+
+.is-circle::before {
+
+content: "" !important;
+
+position: absolute;
+
+top: 0;
+
+left: 0;
+
+width: 100% !important;
+
+height: 100% !important;
+
+border-radius: 50% !important;
+
+z-index: -1;
+
+}
+
+
+
+/* 色の指定は今のまま残してOK */
+
+.is-info::before { background-color: var(--color-info); }
+
+.is-news::before { background-color: var(--color-news); }
+
+.is-footer::before { background-color: var(--color-txt); }
+
+
+
+
+
+/* すべての設定を無視して、強制的に円を描画する */
+
+.common_headline_title.is-circle {
+
+display: flex !important;
+
+visibility: visible !important;
+
+opacity: 1 !important;
+
+width: 400px !important;
+
+height: 400px !important;
+
+margin: -200px auto 0 !important;
+
+border-radius: 50% !important;
+
+justify-content: center !important;
+
+color: #ffffff !important;
+
+position: relative !important;
+
+z-index: 5 !important;
+
+}
+
+@media screen and (max-width: 768px) {
+
+.common_headline_title.is-circle {
+
+width: 300px !important;
+
+height: 300px !important;
+margin-top: -150px !important;
+
+}
+
+}
+
+
+
+/* 背景色を「擬似要素」ではなく「本体」に直接塗る（確実性を上げるため） */
+
+.is-info {
+
+background-color: var(--color-info) !important;
+
+}
+
+.is-news {
+
+background-color: var(--color-news) !important;
+
+}
+
+
+
+/* アーチ状のSVGを円の上に引き寄せる */
+
+.info .common_headline_arch,
+
+.news .common_headline_arch {
+
+margin-bottom: -150px !important; /* これで円に被せます */
+
+position: relative !important;
+
+z-index: 10 !important;
+}

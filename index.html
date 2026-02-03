@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CafeLP</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&family=Indie+Flower&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=M+PLUS+1:wght@100..900&family=Zen+Kaku+Gothic+Antique&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <!--==ヘッダー==-->
+    <header>
+        <!--==ロゴ==-->
+        <h1 class="header__logo">
+            <a href="#fv">
+                <img src="images/logo.png" alt="CAFE RYE & SMILE">
+            </a>
+        </h1>
+        <!--==ハンバーガー==-->
+        <nav class="hamburger_cont">
+            <div class="hamburger_icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="hamburger_body">
+                <ul class="nav_links">
+                    <li><a href="#about" onclick="toggleMenu()">ABOUT</a></li>
+                    <li><a href="#menu" onclick="toggleMenu()">MENU</a></li>
+                    <li><a href="#info" onclick="toggleMenu()">INFO</a></li>
+                    <li><a href="#news" onclick="toggleMenu()">NEWS</a></li>
+                </ul>
+                <ul class="nav_sns">
+                    <li><img src="images/facebook-2.png" alt="facebook"></li>
+                    <li><img src="images/x-2.png" alt="X"></li>
+                </ul>
+                <a class="nav__booking_link" href="#" onclick="toggleMenu()">ご予約はこちら</a>
+            </div>
+        </nav>
+    </header>
+    <main class="main">
+        <!--==ファーストビュー==-->
+        <section class="fv" id="fv">
+            <!--==スライダー==-->
+            <div class="fv__slider_box">
+                <ul class="fv__slider">
+                    <li class="fv__slide"><img src="images/fv-1.png" alt="店内画像 1"></li>
+                    <li class="fv__slide"><img src="images/fv-2.png" alt="店内画像 2"></li>
+                    <li class="fv__slide"><img src="images/fv-3.png" alt="店内画像 3"></li>
+                    <li class="fv__slide"><img src="images/fv-4.png" alt="店内画像 3"></li>
+                </ul>
+                <div class="fv__slider-pagination">
+                    <span class="fv__dot active" onclick="fvMove(0)"></span>
+                    <span class="fv__dot" onclick="fvMove(1)"></span>
+                    <span class="fv__dot" onclick="fvMove(2)"></span>
+                    <span class="fv__dot" onclick="fvMove(3)"></span>
+                </div>
+            </div>
+            <!--==ファーストビューbox==-->
+            <div class="fv__box">
+                <div class="fv__subtitle-arch">
+                    <svg viewBox="0 0 500 150">
+                        <path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" fill="transparent" />
+                        <text width="500">
+                            <textPath xlink:href="#curve" startOffset="50%" text-anchor="middle">
+                                Enjoy a buffet filled with health, happiness, and fun.
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+                <div class="shop_title">
+                    <div class="common_shopname_top">CAFE</div>
+                    <div class="shop_name">
+                        <span class="common_shopname_big">RYE</span>
+                        <span class="common_shopname_small">&</span>
+                        <span class="common_shopname_big">SMILE</span>
+                    </div>
+                </div>
+                <p class="fv__txt">German Style Rye Bread & Homemade Cake Cafe</p>
+            </div>
+        </section>
+        <!--==アバウト==-->
+        <section class="about" id="about">
+            <!--==タイトル==-->
+            <h2 class="about__title is-brown">
+                <div class="common_headline_arch">
+                    <svg viewBox="0 0 400 100">
+                        <defs><path id="archPath" d="M40,80 Q200,10 360,80" fill="transparent" /></defs>
+                        <text>
+                            <textPath xlink:href="#archPath" startOffset="50%" text-anchor="middle">
+                                CAFE RYE & SMILE
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+                <span class="common_headline_title">ABOUT</span>
+            </h2>
+            <!--==スライダー==-->
+            <div class="about__slider_wrapper">
+                <div class="about__slider_box">
+                    <ul class="about__slider">
+                        <li class="about__slide"><img src="images/about-1.png" alt="about-visual 1"></li>
+                        <li class="about__slide"><img src="images/about-2.png" alt="about-visual 2"></li>
+                        <li class="about__slide"><img src="images/about-3.png" alt="about-visual 3"></li>
+                        <li class="about__slide"><img src="images/about-4.png" alt="about-visual 3"></li>
+                    </ul>
+                </div>
+                <div class="about__slider-pagination">
+                    <span class="about__dot active" onclick="aboutMove(0)"></span>
+                    <span class="about__dot" onclick="aboutMove(1)"></span>
+                    <span class="about__dot" onclick="aboutMove(2)"></span>
+                    <span class="about__dot" onclick="aboutMove(3)"></span>
+                </div>
+            </div>
+            <!--==アバウトbox==-->
+            <div class="about__box">
+                <h4>健康も､楽しさも､<br>食べ放題</h4>
+                <p>
+                    毎日焼き上げる自慢のパンと、<br>
+                    やさしい甘さの手作りケーキ<br>
+                    Rye&Smileは､<br>
+                    ドイツで修行した店主がこだわり抜いた<br>
+                    ライ麦・全粒粉パンを 気軽に楽しめる<br>
+                    パンビュッフェスタイルのカフェです<br>
+                    ｢体にやさしいのに､ちゃんとおいしい｣<br>
+                    そんな時間を､笑顔と一緒にお届けします
+                </p>
+            </div>
+        </section>
+        <!--==メニュー==-->
+        <section class="menu" id="menu">
+            <!--==タイトル==-->
+            <h2 class="menu__title is-brown">
+                <div class="common_headline_arch">
+                    <svg viewBox="0 0 400 100">
+                        <text>
+                            <textPath xlink:href="#archPath" startOffset="50%" text-anchor="middle">
+                                CAFE RYE & SMILE
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+                <span class="common_headline_title">MENU</span>
+            </h2>
+            <h3 class="menu__subtitle">
+                <span class="menu__subtitle_main">常時10種類以上のパンが食べ放題</span>
+                <span class="menu__subtitle_sub">その日の気分で､自由にセレクト</span>
+            </h3>
+            <div class="menu__body">
+                <!--==パンメニュー==-->
+                <div class="menu__box">
+                    <h4>Bread</h4>
+                    <div class="menu__box_body">
+                        <div class="menu__box_imgs">
+                            <div class="menu_img"><img src="images/menu-bread.png" alt="パンメニュー"></div>
+                        </div>
+                        <div class="menu__box_txt">
+                            <div class="menu__txtbox">
+                                <span class="txt_bold">石臼挽き全粒粉ライ麦パン</span>
+                                <p class="box_txt">噛むほど広がる香ばしさと<br>自然な甘み</p>
+                            </div>
+                            <div class="menu__txtbox">
+                                <span class="txt_bold">ライ麦シードパン</span>
+                                <p class="box_txt">栄養たっぷり<br>プチプチ食感が楽しいパン</p>
+                            </div>
+                            <div class="menu__txtbox">
+                                <span class="txt_bold">オリジナルブレンドパン</span>
+                                <p class="box_txt">日本人にもなじみやすい、<br>ふんわりやさしい味わい</p>
+                            </div>
+                            <div class="menu__txtbox">
+                                <span class="txt_bold">全粒粉ロール</span>
+                                <p class="box_txt">朝食や軽めランチに<br>満腹感がちょうどいい</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--==フードメニュー==-->
+                <div class="menu__box">
+                    <h4>Food</h4>
+                    <div class="menu__box_body">
+                        <div class="menu__box_imgs">
+                            <div class="menu_img"><img src="images/menu-food1.png" alt="food-menu 1"></div>
+                            <div class="menu_img"><img src="images/menu-food2.png" alt="food-menu 2"></div>
+                        </div>
+                        <div class="menu__box_txt">
+                            <div class="menu__txtbox">
+                                <span class="txt_bold">気まぐれパスタ</span>
+                                <p class="box_txt">日替わりパスタ</p>
+                            </div>
+                            <div class="menu__txtbox">
+                                <span class="txt_bold">ジェノベーゼ</span>
+                                <p class="box_txt">口いっぱいに広がる香り</p>
+                            </div>
+                            <div class="menu__txtbox">
+                                <span class="txt_bold">ミートソース</span>
+                                <p class="box_txt">新鮮なトマトをふんだんに<br>使用</p>
+                            </div>
+                            <div class="menu__txtbox">
+                                <span class="txt_bold">アヒージョ</span>
+                                <p class="box_txt">新鮮な海鮮と野菜がパンと<br>の相性◎</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--==ケーキメニュー==-->
+                <div class="menu__box">
+                    <h4>Cake</h4>
+                    <div class="menu__box_body">
+                        <div class="menu__box_imgs">
+                            <div class="menu_img"><img src="images/menu-cake1.png" alt="cake-menu 1"></div>
+                            <div class="menu_img"><img src="images/menu-cake2.png" alt="cake-menu 2"></div>
+                        </div>
+                        <div class="menu__box_txt">
+                            <div class="menu__txtbox">
+                                <span class="txt_bold">季節のフルーツケーキ</span>
+                                <p class="box_txt">旬の素材を使った<br>さっぱり甘さ</p>
+                            </div>
+                            <div class="menu__txtbox">
+                                <span class="txt_bold">しっとりチーズケーキ</span>
+                                <p class="box_txt">濃厚なのに軽やかな<br>口当たり</p>
+                            </div>
+                            <div class="menu__txtbox">
+                                <span class="txt_bold">ふわふわシフォンケーキ</span>
+                                <p class="box_txt">やさしい甘さで食後にも◎</p>
+                            </div>
+                            <div class="menu__txtbox">
+                                <span class="txt_bold">抹茶ケーキ</span>
+                                <p class="box_txt">抹茶ミルフィーユにバニラ<br>アイスを添えて</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--==linkボタン==-->
+            <a class="menu__link" href="#">メニューをもっと見る</a>
+        </section>
+        <!--==アクセス==-->
+        <section class="info" id="info">
+            <!--==タイトル==-->
+            <h2 class="info__title is-white">
+                <div class="common_headline_arch">
+                    <svg viewBox="0 0 400 100">
+                        <text>
+                            <textPath xlink:href="#archPath" startOffset="50%" text-anchor="middle">
+                                CAFE RYE & SMILE
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+                <span class="common_headline_title is-circle is-info">INFO</span>
+            </h2>
+            <!--==アクセスbox==-->
+            <div class="info__box">
+                <div class="info__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.7303027871324!2d139.646636876356!3d35.687788430030594!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f2588e8da20d%3A0x167cff38bd9ea93a!2z5riI576O5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1714567890123!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <a class="info__map_link" href="#">GOOGLE MAP</a>
+                <div class="info__address-box">
+                    <div class="info__address">
+                        <span class="info__box_title">ADDRESS</span>
+                        <p class="info__box_txt">大阪府大阪市XX町1-2-3</p>
+                        <a class="info__box_txt" href="tel:0000000000">000-000-0000</a>
+                    </div>
+                    <div class="info__open">
+                        <span class="info__box_title">OPENING HOUSE</span>
+                        <p class="info__box_txt">10:00〜18:00<br>定休日：水曜日</p>
+                    </div>
+                </div>
+                <a class="info__booking_link" href="#">ご予約はこちら</a>
+            </div>
+        </section>
+        <!--==ニュース==-->
+        <section class="news" id="news">
+            <!--==タイトル==-->
+            <h2 class="news__title is-white">
+                <div class="common_headline_arch">
+                    <svg viewBox="0 0 400 100">
+                        <text>
+                            <textPath xlink:href="#archPath" startOffset="50%" text-anchor="middle">
+                                CAFE RYE & SMILE
+                            </textPath>
+                        </text>
+                    </svg>
+                </div>
+                <span class="common_headline_title is-circle is-news">NEWS</span>
+            </h2>
+            <!--==ニュースbox==-->
+            <div class="news__box">
+                <div class="news__accordion">
+                    <div class="news__btn-box">
+                        <button data-default-text="Minimalist Accordion" data-open-text="Close">news title...</button>
+                    </div>
+                    <div class="news__btn-box_inner">
+                        <ul>
+                            <li>00 月 00 日</li>
+                            <li>news title</li>
+                            <li>news</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="news__accordion">
+                    <div class="news__btn-box">
+                        <button data-default-text="Minimalist Accordion" data-open-text="Close">news title...</button>
+                    </div>
+                    <div class="news__btn-box_inner">
+                        <ul>
+                            <li>00 月 00 日</li>
+                            <li>news title</li>
+                            <li>news</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="news__accordion">
+                    <div class="news__btn-box">
+                        <button data-default-text="Minimalist Accordion" data-open-text="Close">news title...</button>
+                    </div>
+                    <div class="news__btn-box_inner">
+                        <ul>
+                            <li>00 月 00 日</li>
+                            <li>news title</li>
+                            <li>news</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="news__accordion">
+                    <div class="news__btn-box">
+                        <button data-default-text="Minimalist Accordion" data-open-text="Close">news title...</button>
+                    </div>
+                    <div class="news__btn-box_inner">
+                        <ul>
+                            <li>00 月 00 日</li>
+                            <li>news title</li>
+                            <li>news</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="news__accordion">
+                    <div class="news__btn-box">
+                        <button data-default-text="Minimalist Accordion" data-open-text="Close">news title...</button>
+                    </div>
+                    <div class="news__btn-box_inner">
+                        <ul>
+                            <li>00 月 00 日</li>
+                            <li>news title</li>
+                            <li>news</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="news__accordion">
+                    <div class="news__btn-box">
+                        <button data-default-text="Minimalist Accordion" data-open-text="Close">news title...</button>
+                    </div>
+                    <div class="news__btn-box_inner">
+                        <ul>
+                            <li>00 月 00 日</li>
+                            <li>news title</li>
+                            <li>news</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="news__accordion">
+                    <div class="news__btn-box">
+                        <button data-default-text="Minimalist Accordion" data-open-text="Close">news title...</button>
+                    </div>
+                    <div class="news__btn-box_inner">
+                        <ul>
+                            <li>00 月 00 日</li>
+                            <li>news title</li>
+                            <li>news</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--==フッター==-->
+    <footer>
+        <!--==ロゴ==-->
+        <div class="footer__logo is-circle is-footer">
+            <img src="images/logo.png" alt="CAFE RYE & SMILE">
+        </div>
+        <!--==フッターbox==-->
+        <div class="footer__box">
+            <div class="shop_title">
+                <div class="common_shopname_top">CAFE</div>
+                <div class="shop_name">
+                    <p class="common_shopname_big">RYE</p>
+                    <p class="common_shopname_small">&</p>
+                    <p class="common_shopname_big">SMILE</p>
+                </div>
+            </div>
+            <p class="footer__txt">大阪府大阪市XX町1-2-3</p>
+            <div class="footer__tel">
+                <a href="#">000-000-0000</a>
+            </div>
+            <div class="footer__sns_box">
+                <span class="footer__sns_title">SHARE</span>
+                <div class="footer__sns_link">
+                    <img src="images/facebook-1.png" alt="facebook">
+                    <img src="images/message-1.png" alt="message">
+                    <img src="images/x-1.png" alt="X">
+                </div>
+            </div>
+            <a class="footer__booking_link" href="#">ご予約はこちら</a>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

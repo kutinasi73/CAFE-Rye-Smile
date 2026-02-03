@@ -1,0 +1,1164 @@
+/* ===ヘッダー=== */
+
+
+
+/*ロゴ*/
+
+h1{
+
+display: flex;
+
+width: 200px;
+
+height: 100%;
+
+margin: 0;
+
+position: fixed; /* 画面に固定して、スクロールしても付いてくるようにする */
+
+top: 0px; /* 上からの位置（ハンバーガーアイコンと高さを合わせると綺麗） */
+
+left: 20px; /* 左からの位置 */
+
+z-index: 2000;
+
+}
+
+@media screen and (max-width: 768px) {
+
+h1 {
+
+width: 125px;
+
+height: 100%;
+
+}
+
+}
+
+
+
+/*ハンバーガー*/
+
+.hamburger_cont {
+
+display: block;
+
+}
+
+.hamburger_icon {
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: space-between;
+
+height: 30px;
+
+width: 35px;
+
+cursor: pointer;
+
+position: fixed;
+
+top: 35px;
+
+right: 20px;
+
+z-index: 1100;
+
+}
+
+.hamburger_icon span {
+
+display: block;
+
+width: 100%;
+
+height: 2px;
+
+background-color: var(--color-cta);
+
+transition: all 0.3s;
+
+}
+
+.hamburger_body {
+
+position: fixed;
+
+top: 0;
+
+right: -100%;
+
+width: 100%;
+
+height: 100vh;
+
+background-color: var(--color-main);
+
+z-index: 1000;
+
+transition : right 0.5s;
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: center;
+
+align-items: center;
+
+gap: 50px;
+
+transition: 0.5s;
+
+}
+
+.hamburger_body.open {
+
+right: 0;
+
+}
+
+.nav_links {
+
+list-style: none;
+
+padding: 0;
+
+text-align: center;
+
+}
+
+.nav_links li {
+
+width: 100%;
+
+}
+
+.nav_links a {
+
+display: block;
+
+padding: 20px 0;
+
+font-size: var(--font-size-24);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+font-family: var(--font-title);
+
+color: var(--color-txt);
+
+text-decoration: none;
+
+}
+
+.nav_sns li{
+
+padding-bottom: 20px;
+
+}
+
+.nav__booking_link{
+
+width: 70%;
+
+max-width: 500px;
+
+background-color: var(--color-cta);
+
+color: var(--color-main);
+
+padding: 10px 0;
+
+border-radius: 50px;
+
+font-weight: bold;
+
+font-size: var(--font-size-20);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+text-align: center;
+
+}
+
+
+
+/*ハンバーガーアニメーション*/
+
+.nav_links.open {
+
+max-height: 100vh;
+
+right: 0;
+
+}
+
+
+
+.hamburger_icon.open span:nth-child(1) {
+
+transform: translateY(14px) rotate(45deg);
+
+}
+
+.hamburger_icon.open span:nth-child(2) {
+
+opacity: 0;
+
+}
+
+.hamburger_icon.open span:nth-child(3) {
+
+transform: translateY(-14px) rotate(-45deg);
+
+}
+
+
+
+body.no-scroll {
+
+overflow: hidden;
+
+}
+
+
+
+/* ===ファーストビュー=== */
+
+.fv{
+
+font-family: var(--font-title);
+
+}
+
+
+
+.fv__slider_box {
+
+position: relative;
+
+width: 100%;
+
+height: 100vh; /* 画面いっぱいの高さ */
+
+overflow: hidden; /* はみ出た画像を隠す */
+
+}
+
+
+
+/* スライダー*/
+
+/* 文字（前面）*/
+
+.fv__box {
+
+position: absolute;
+
+top: 50%;
+
+left: 50%;
+
+transform: translate(-50%, -50%); /* 真ん中寄せ */
+
+z-index: 10; /* スライダーより数字を大きくして手前に */
+
+text-align: center;
+
+width: 100%;
+
+color:var(--color-main);
+
+text-shadow: 2px 2px 10px rgba(0,0,0,0.3); /* 文字に影をつけて読みやすく */
+
+}
+
+/* アーチ部分の設定 */
+
+.fv__subtitle-arch {
+
+width: 100%;
+
+max-width: 500px;
+
+margin: 0 auto -40px; /* 左右中央寄せ ＋ 下のロゴに近づける */
+
+}
+
+
+
+.fv__subtitle-arch text {
+
+fill: var(--color-main); /* これで文字に色がつく！ */
+
+font-family: var(--font-subtitle);
+
+font-size: var(--font-size-14);
+
+letter-spacing: 0.1em;
+
+}
+
+.fv__txt{
+
+font-size: var(--font-size-24);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+width: 90%;
+
+display: flex;
+
+justify-content: center;
+
+flex-wrap: wrap;
+
+margin: 50px auto 0;
+
+}
+
+
+
+/*スライダードット*/
+
+.fv__slider-pagination {
+
+position: absolute;
+
+bottom: 30px;
+
+left: 50%;
+
+transform: translateX(-50%);
+
+z-index: 20;
+
+display: flex;
+
+gap: 15px;
+
+}
+
+
+
+.fv__dot {
+
+width: 12px;
+
+height: 12px;
+
+background-color: var(--color-main);
+
+border-radius: 50%;
+
+cursor: pointer;
+
+}
+
+
+
+.fv__dot.active {
+
+background-color: var(--color-cta);
+
+}
+
+
+
+/* === アバウト === */
+
+/* スライダー*/
+
+.about__slider_wrapper {
+
+position: relative;
+
+max-width: 900px;
+
+margin: 50px auto 100px;
+
+}
+
+.about__slider_box {
+
+position: relative;
+
+width: 100%;
+
+aspect-ratio: 16 / 6;
+
+overflow: hidden;
+
+}
+
+/*スライダードット*/
+
+.about__slider-pagination {
+
+position: absolute;
+
+bottom: -30px;
+
+left: 50%;
+
+transform: translateX(-50%);
+
+z-index: 20;
+
+display: flex;
+
+gap: 15px;
+
+}
+
+.about__dot {
+
+width: 12px;
+
+height: 12px;
+
+background-color: var(--color-news);
+
+border-radius: 50%;
+
+cursor: pointer;
+
+}
+
+
+
+.about__dot.active {
+
+background-color: var(--color-txt);
+
+}
+
+/*アバウトbox*/
+
+.about__box{
+
+width: 90%;
+
+max-width: 900px;
+
+height: 100%;
+
+border-radius: 10px;
+
+padding: 50px 15px;
+
+display: flex;
+
+flex-wrap: wrap;
+
+gap: 50px;
+
+align-items: center;
+
+align-content: flex-start;
+
+justify-content: center;
+
+margin: 0 auto;
+
+background-color: var(--color-sub);
+
+}
+
+h4{
+
+width: 90%;
+
+max-width: 300px;
+
+text-align: start;
+
+text-align: center;
+
+font-size: var(--font-size-24);
+
+font-family: var(--font-txt);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+}
+
+.about__box p{
+
+width: 90%;
+
+max-width: 400px;
+
+font-size: var(--font-size-16);
+
+font-family: var(--font-txt);
+
+}
+
+/* === メニュー === */
+
+
+
+.menu__subtitle{
+
+font-family: var(--font-txt);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+margin: 50px auto;
+
+text-align: center;
+
+display: flex;
+
+flex-direction: column;
+
+gap: 15px;
+
+}
+
+.menu__subtitle_main{
+
+font-size: var(--font-size-20);
+
+font-weight: bold;
+
+}
+
+.menu__subtitle_sub{
+
+font-size: var(--font-size-16);
+
+}
+
+/*メニューbox*/
+
+
+
+.menu__box{
+
+width: 90%;
+
+max-width:900px;
+
+border-radius: 10px;
+
+padding: 30px 20px;
+
+display: flex;
+
+flex-direction: column;
+
+flex-wrap: wrap;
+
+align-items: center;
+
+margin: 0 auto 30px;
+
+background-color: var(--color-sub);
+
+gap: 30px;
+
+}
+
+h4{
+
+font-family: var(--font-txt);
+
+font-size: var(--font-size-24);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+font-weight: bold;
+
+}
+
+.menu__box_body{
+
+display: flex;
+
+gap: 10%;
+
+width: 100%;
+
+justify-content: center;
+
+align-items: flex-start;
+
+}
+
+.menu__box_imgs{
+
+display: flex;
+
+flex-direction: column;
+
+width: 30%;
+
+max-width: 300px;
+
+gap: 15px;
+
+}
+
+.menu_img{
+
+height: 100%;
+
+}
+
+.menu_img img {
+
+border-radius: 10px;
+
+width: 100%;
+
+height: auto;
+
+}
+
+.menu__box_txt{
+
+width: 60%;
+
+max-width: 400px;
+
+font-family: var(--font-txt);
+
+font-size: var(--font-size-16);
+
+display: flex;
+
+flex-direction: column;
+
+gap: 30px;
+
+}
+
+.txt_bold{
+
+font-weight: bold;
+
+text-align: center;
+
+}
+
+/*cta*/
+
+.menu__link{
+
+display: block;
+
+width: 70%;
+
+max-width: 500px;
+
+background-color: var(--color-cta);
+
+color: var(--color-main);
+
+padding: 10px 0;
+
+border-radius: 50px;
+
+font-weight: bold;
+
+font-size: var(--font-size-20);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+text-align: center;
+
+margin: 50px auto 0;
+
+}
+
+
+
+/* === アクセス === */
+
+.info {
+
+background: linear-gradient(
+
+to bottom,
+
+var(--color-main) 0%,
+
+var(--color-main) 140px,
+
+var(--color-info) 140px,
+
+var(--color-info) 100%
+
+) !important;
+
+}
+
+@media screen and (max-width: 768px) {
+
+.info {
+
+background: linear-gradient(
+
+to bottom,
+
+var(--color-main) 0%,
+
+var(--color-main) 60px,
+
+var(--color-info) 60px,
+
+var(--color-info) 100%
+
+);
+
+}
+
+}
+
+.info .common_headline_arch{
+
+width: 200px;
+
+margin: 0 auto -90px !important;
+
+position: relative;
+
+z-index: 10;
+
+}
+
+.info__box{
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+width: 90%;
+
+max-width: 900px;
+
+margin: -120px auto 0;
+
+background-color: var(--color-main); /* 箱はベージュ */
+
+border-radius: 10px;
+
+padding: 40px 20px;
+
+box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+
+position: relative; /* 安定させるため */
+
+z-index: 5;
+
+}
+
+@media screen and (max-width: 768px) {
+
+.info__box {
+
+margin-top: -80px;
+
+}
+
+}
+
+/*Googleマップ*/
+
+.info__map {
+
+width: 90%;
+
+max-width: 900px;
+
+aspect-ratio: 3 / 1; /* 横長を維持 */
+
+text-align: center;
+
+}
+
+
+
+.info__map iframe {
+
+width: 100% !important; /* 親の幅に合わせる */
+
+height: 100% !important;
+
+}
+
+.info__address-box{
+
+width: 90%;
+
+max-width: 900px;
+
+display: flex;
+
+font-size: var(--font-size-20);
+
+margin: 30px auto;
+
+justify-content: space-around;
+
+}
+
+
+
+@media screen and (max-width: 768px) {
+
+.info__address-box {
+
+display: flex;
+
+flex-direction: column;
+
+margin: 50px auto;
+
+gap: 30px;
+
+}
+
+}
+
+.info__address,.info__open{
+
+width: 300px;
+
+}
+
+.info__box_title{
+
+font-family: var(--font-title);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+font-weight: bold;
+
+}
+
+.info__box_txt{
+
+font-family: var(--font-txt);
+
+}
+
+
+
+/*cta*/
+
+.info__booking_link{
+
+width: 70%;
+
+max-width: 500px;
+
+background-color: var(--color-cta);
+
+color: var(--color-main);
+
+padding: 10px 0;
+
+border-radius: 50px;
+
+font-weight: bold;
+
+font-size: var(--font-size-20);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+text-align: center;
+
+margin: 20px auto 0;
+
+}
+
+/* === ニュース === */
+
+.news{
+
+background: linear-gradient(
+
+to bottom,
+
+var(--color-info) 0%,
+
+var(--color-info) 140px,
+
+var(--color-news) 140px,
+
+var(--color-news) 100%
+
+) !important;
+
+}
+
+@media screen and (max-width: 768px) {
+
+.news {
+
+background: linear-gradient(
+
+to bottom,
+
+var(--color-info) 0%,
+
+var(--color-info) 60px,
+
+var(--color-news) 60px,
+
+var(--color-news) 100%
+
+);
+
+}
+
+}
+
+
+
+.news .common_headline_arch {
+
+width: 200px;
+
+margin: 0 auto -90px !important;
+
+position: relative;
+
+z-index: 10;
+
+}
+
+.news__box{
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+width: 90%;
+
+max-width: 900px;
+
+margin: -120px auto 0;
+
+color: var(--color-news);
+
+background-color: var(--color-main);
+
+border-radius: 10px;
+
+padding: 40px 20px;
+
+box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+
+position: relative; /* 安定させるため */
+
+z-index: 5;
+
+}
+
+@media screen and (max-width: 768px) {
+
+.news__box {
+
+margin-top: -80px;
+
+}
+
+}
+
+/*アコーディオン*/
+/* 1. 外枠と下線 */
+.news__accordion {
+    width: 90%;
+    max-width: 500px;
+    border-bottom: 1px solid var(--color-news);
+    box-sizing: border-box;
+}
+/* 2. ボタン本体（.news__btn-box内の指定はもう不要です） */
+.news__accordion button {
+    width: 100%;
+    min-height: 80px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent; /* 背景色固定を解除 */
+    color: var(--color-txt);
+    border: none;
+    font-family: var(--font-title);
+    font-size: var(--font-size-20);
+    font-weight: bold;
+    cursor: pointer;
+    box-sizing: border-box;
+    text-align: left;
+    line-height: var(--line-height-tight);
+}
+/* 3. ＋マークの設定 */
+.news__accordion button::after {
+    content: "+";
+    font-size: var(--font-size-24);
+    font-weight: bold;
+    flex-shrink: 0; 
+    margin-left: 20px;
+    transition: transform 0.3s ease;
+}
+/* 4. 開いた時の回転 */
+.news__accordion.active button::after {
+    transform: rotate(45deg);
+}
+/* 5. 中身（開く部分） */
+.news__btn-box_inner {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.3s ease-out;
+}
+/* 6. 開いた時の表示 */
+.news__accordion.active .news__btn-box_inner {
+    max-height: 500px;
+    opacity: 1;
+    padding: 0 10px 30px; 
+}
+/* 中のリスト */
+.news__btn-box_inner ul li {
+    font-size: var(--font-size-16);
+    color: var(--color-txt);
+    margin-bottom: 10px;
+}
+
+
+/* === フッター === */
+
+.footer__logo img {
+
+width: 125px;
+
+height: 125px;
+
+}
+
+.footer__box{
+
+width: 90%;
+
+max-width: 900px;
+
+padding: 30px 20px;
+
+margin: -50px auto 30px;
+
+display: flex;
+
+flex-direction: column;
+
+align-items: center;
+
+gap: 30px;
+
+z-index: 10;
+
+}
+
+.footer__txt,.footer__tel{
+
+font-family: var(--font-txt);
+
+font-size: var(--font-size-16);
+
+text-align: center;
+
+}
+
+.footer__sns_box{
+
+display: flex;
+
+gap: 30px;
+
+flex-direction: column;
+
+align-items: center;
+
+}
+
+.footer__sns_title{
+
+font-family: var(--font-title);
+
+font-size: var(--font-size-20);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+}
+
+.footer__sns_link{
+
+display: flex;
+
+gap: 10px;
+
+width: 100%;
+
+max-width: 900px;
+
+}
+
+.footer__booking_link{
+
+width: 70%;
+
+max-width: 500px;
+
+color: var(--color-main);
+
+padding: 10px 0;
+
+border-radius: 50px;
+
+border: 1px solid var(--color-main);
+
+font-weight: bold;
+
+font-size: var(--font-size-20);
+
+line-height: var(--line-height-tight);
+
+letter-spacing: var(--letter-spacing-title);
+
+text-align: center;
+
+margin: 20px auto 0;
+
+}
